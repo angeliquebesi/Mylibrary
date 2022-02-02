@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import hero from '../../assets/images/hero.jpg';
-import { BlueButton } from '../buttons/index';
+import { BlueButton } from '../buttons';
 
 const Hero = function Hero() {
   const navigate = useNavigate();
