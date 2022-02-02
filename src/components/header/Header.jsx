@@ -20,7 +20,7 @@ const Hero = function Hero() {
         <h1 className="text-7xl tracking-tight leading-10 sm:text-7xl text-indigo-600 font-bold sm:leading-none md:text-8xl">
           My library
         </h1>
-        <p className=" text-white font-medium sm:mt-5 sm:text-2xl sm:max-w-xl sm:mx-auto md:mt-20 md:text-3xl">
+        <p className=" mt-5 px-4 text-white font-medium sm:mt-5 sm:text-2xl sm:max-w-xl sm:mx-auto md:mt-20 md:text-3xl">
           Welcome to{' '}
           <span className="text-indigo-600"> &rdquo;My Library&rdquo; </span>,
           The site that allows you to follow your reading.
