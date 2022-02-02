@@ -4,7 +4,7 @@ import Title from '../components/title/Title';
 const AllBooks = function AllBooks() {
   return (
     <div>
-      <Title />
+      <Title text="Books" />
     </div>
   );
 };
