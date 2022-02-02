@@ -1,0 +1,24 @@
+import React from 'react';
+import hero from '../../assets/images/hero.jpg';
+
+const Hero = function Hero() {
+  return (
+    <div
+      className="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center "
+      style={{ backgroundImage: `url(${hero})` }}
+    >
+      <div className="text-center">
+        <h2 className="text-7xl tracking-tight leading-10 sm:text-7xl text-indigo-600 font-bold sm:leading-none md:text-8xl">
+          My library
+        </h2>
+        <p className=" text-white font-medium sm:mt-5 sm:text-2xl sm:max-w-xl sm:mx-auto md:mt-20 md:text-3xl">
+          Welcome to{' '}
+          <span className="text-indigo-600"> &rdquo;My Library&rdquo; </span>,
+          The site that allows you to follow your reading.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
