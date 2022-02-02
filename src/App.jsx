@@ -1,10 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './container';
+import NavBar from './components/navbar/NavBar';
 
 const App = function App() {
   return (
-    <div className="App">
+    <div>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
