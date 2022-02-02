@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import hero from '../../assets/images/hero.jpg';
+import BlueButton from '../buttons/BlueButton';
 
 const Hero = function Hero() {
+  const navigate = useNavigate();
+  const handleAllBooks = () => {
+    navigate('/allbooks');
+  };
   return (
     <div
       className="relative h-screen w-full flex items-center justify-center text-center bg-cover bg-center "
@@ -16,6 +22,10 @@ const Hero = function Hero() {
           <span className="text-indigo-600"> &rdquo;My Library&rdquo; </span>,
           The site that allows you to follow your reading.
         </p>
+        <div className="mx-auto mt-5 md:mt-10 w-48">
+          {' '}
+          <BlueButton text="Enter" onClick={handleAllBooks} />
+        </div>
       </div>
     </div>
   );
