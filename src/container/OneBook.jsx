@@ -5,12 +5,11 @@ import Title from '../components/title/Title';
 
 const OneBook = function OneBook() {
   const { id } = useParams();
-  console.log(id);
   return (
     <div>
       {' '}
       <Title text="Titre du livre" />
-      <CardOneBook />
+      <CardOneBook id={id} />
     </div>
   );
 };

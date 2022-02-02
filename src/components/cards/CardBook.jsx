@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import BlueButton from '../buttons/BlueButton';
+import { BlueButton } from '../buttons/index';
 
 const CardBook = function CardBook() {
   const navigate = useNavigate();
