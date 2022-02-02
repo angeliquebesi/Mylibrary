@@ -4,11 +4,13 @@ import BlueButton from '../buttons/BlueButton';
 
 const CardBook = function CardBook() {
   const navigate = useNavigate();
+
   /**
    * Fonction pour aller sur la page de détail du livre choisi
+   * @param {number} id correspond à l'id du livre sélectionné
    */
-  const handleViewMore = () => {
-    navigate('/allbooks/:id');
+  const handleViewMore = (id) => {
+    navigate(`/allbooks/${id}`);
   };
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
