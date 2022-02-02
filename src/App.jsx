@@ -11,9 +11,9 @@ const App = function App() {
         <NavBar />
       </div>
       <Routes>
-        <Routes path="/addbook" />
         <Route path="/allbooks/:id" element={<OneBook />} />
         <Route path="/allbooks" element={<AllBooks />} />
+        <Routes path="/addbook" />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
