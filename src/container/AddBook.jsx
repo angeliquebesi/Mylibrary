@@ -6,6 +6,9 @@ import Title from '../components/title/Title';
 const AddBook = function AddBook() {
   const [popup, setPopup] = useState(false);
 
+  /**
+   * Fonction pour afficher la popup de confirmation
+   */
   const handleConfirmAdd = () => {
     setPopup(!popup);
   };

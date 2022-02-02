@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BlueButton } from '../buttons/index';
 
 const CardBook = function CardBook() {
   const navigate = useNavigate();
+  const [popup, setPopup] = useState(false);
 
   /**
    * Fonction pour aller sur la page de détail du livre choisi
@@ -11,6 +12,13 @@ const CardBook = function CardBook() {
    */
   const handleViewMore = (id) => {
     navigate(`/allbooks/${id}`);
+  };
+
+  /**
+   * Fonction pour afficher la popup de confirmation
+   */
+  const handleDelete = () => {
+    setPopup(!popup);
   };
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
@@ -23,6 +31,7 @@ const CardBook = function CardBook() {
             className=" text-red-400 w-7 h-7"
             viewBox="0 0 20 20"
             fill="currentColor"
+            onClick={handleDelete}
           >
             <path
               fillRule="evenodd"
@@ -45,6 +54,35 @@ const CardBook = function CardBook() {
         </div>
         <BlueButton text="View more" onClick={handleViewMore} />
       </div>
+      {popup ? (
+        <div className="fixed z-10 inset-0 flex items-center justify-center">
+          <div className="bg-gray-700 opacity-20 absolute inset-0 z-40" />
+          <div className="py-8 px-14 bg-white border-gray-200 rounded-lg z-50  border-2 shadow-md text-center">
+            <div className="mb-6 w-52">
+              <p className="mb-4 text-sm text-gray-500">Are you sure ?</p>
+              <div className="mt-5">
+                <button
+                  type="button"
+                  className="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                >
+                  {' '}
+                  Yes
+                </button>
+                <button
+                  type="button"
+                  className="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
+                  onClick={handleDelete}
+                >
+                  {' '}
+                  No{' '}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };
