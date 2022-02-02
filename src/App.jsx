@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Home, AllBooks, OneBook, Page404 } from './container';
+import { Home, AllBooks, OneBook, Page404, AddBook } from './container';
 import NavBar from './components/navbar/NavBar';
 
 const App = function App() {
@@ -11,7 +11,7 @@ const App = function App() {
         <NavBar />
       </div>
       <Routes>
-        <Routes path="/addbook" />
+        <Routes path="/addbook" element={<AddBook />} />
         <Route path="/allbooks/:id" element={<OneBook />} />
         <Route path="/allbooks" element={<AllBooks />} />
         <Route path="/" element={<Home />} />
