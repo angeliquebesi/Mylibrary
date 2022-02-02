@@ -6,7 +6,10 @@ import NavBar from './components/navbar/NavBar';
 const App = function App() {
   return (
     <div>
-      <NavBar />
+      <div>
+        {' '}
+        <NavBar />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
