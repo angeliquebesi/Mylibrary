@@ -5,6 +5,9 @@ import BlueButton from '../buttons/BlueButton';
 
 const Hero = function Hero() {
   const navigate = useNavigate();
+  /**
+   * Fonction pour accéder à la page pour voir tous les livres
+   */
   const handleAllBooks = () => {
     navigate('/allbooks');
   };
