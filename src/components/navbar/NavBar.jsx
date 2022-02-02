@@ -9,7 +9,7 @@ const NavBar = function NavBar() {
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link to="/">
-              <p className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">
+              <p className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white md:text-2xl">
                 My library{' '}
               </p>
             </Link>
@@ -33,24 +33,20 @@ const NavBar = function NavBar() {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+              <Link to="/allbooks">
+                <li className="nav-item">
+                  <p className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75 md:text-lg">
+                    All Books
+                  </p>
+                </li>
+              </Link>
+              {/* <Link to=""> */}
               <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75" />
-                  <span className="ml-2">All Books</span>
-                </a>
+                <p className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75 md:text-lg">
+                  Add Book
+                </p>
               </li>
-              <li className="nav-item">
-                <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
-                  href="#pablo"
-                >
-                  <i className="fab fa-twitter text-lg leading-lg text-white opacity-75" />
-                  <span className="ml-2">Add Book</span>
-                </a>
-              </li>
+              {/* </Link> */}
             </ul>
           </div>
         </div>
