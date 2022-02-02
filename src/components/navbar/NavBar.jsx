@@ -40,13 +40,13 @@ const NavBar = function NavBar() {
                   </p>
                 </li>
               </Link>
-              {/* <Link to=""> */}
-              <li className="nav-item">
-                <p className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75 md:text-lg">
-                  Add Book
-                </p>
-              </li>
-              {/* </Link> */}
+              <Link to="/addbook">
+                <li className="nav-item">
+                  <p className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-white hover:opacity-75 md:text-lg">
+                    Add Book
+                  </p>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
