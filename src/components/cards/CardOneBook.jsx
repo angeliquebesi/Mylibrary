@@ -15,8 +15,8 @@ const CardOneBook = function CardOneBook({ item }) {
   const handleChangeStatus = () => {
     updateBook({ selectStatut }, item.bookid)
       .then((result) => setReading(result.statut))
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
+        return true;
       });
 
     setUpdateStatus(false);

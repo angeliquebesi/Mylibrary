@@ -17,7 +17,7 @@ const CardBook = function CardBook() {
   useEffect(async () => {
     await allBooks()
       .then((result) => setData(result))
-      .catch((err) => console.error(err));
+      .catch(() => true);
   }, []);
   /**
    * Fonction pour aller sur la page de détail du livre choisi

@@ -31,7 +31,6 @@ const deleteBook = (id) => {
     (async () => {
       try {
         const response = await api.delete(`/book/${id}`);
-        console.log(response);
         resolve(response);
       } catch (err) {
         reject(err);

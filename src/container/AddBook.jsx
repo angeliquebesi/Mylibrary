@@ -22,13 +22,15 @@ const AddBook = function AddBook() {
   const handleConfirmAdd = () => {
     setPopup(!popup);
   };
-
+  /**
+   * Fonction pour transmettre les données à la BDD nécessite de passer un objet
+   * Déclenche la fermeture de la popup
+   * Retourne à la page de tous les livres
+   */
   const handleAddBook = () => {
-    postBook({ title, author, publishdate, couverture, summary }).catch(
-      (err) => {
-        console.error(err);
-      }
-    );
+    postBook({ title, author, publishdate, couverture, summary }).catch(() => {
+      return true;
+    });
     setPopup(!popup);
     navigate('/allbooks');
   };
