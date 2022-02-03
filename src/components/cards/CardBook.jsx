@@ -45,11 +45,10 @@ const CardBook = function CardBook() {
       {data.map((b) => {
         return (
           <div
-            className="max-w-sm rounded overflow-hidden shadow-lg"
+            className=" flex flex-col justify-between max-w-sm rounded overflow-hidden shadow-lg"
             key={b.bookid}
           >
-            <img src={b.couverture} alt="book" />
-            <div className="float-right">
+            <div className="flex flex-row justify-end p-2">
               <svg
                 cursor="pointer"
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,6 +64,8 @@ const CardBook = function CardBook() {
                 />
               </svg>
             </div>
+            <img src={b.couverture} alt="book" className="w-5/12 mx-auto" />
+
             <div className="px-6 py-4">
               <div className="font-bold text-xl mb-2">{b.title}</div>
             </div>

@@ -40,4 +40,17 @@ const deleteBook = (id) => {
   });
 };
 
-export { allBooks, getOneBook, deleteBook };
+const updateBook = (data, id) => {
+  return new Promise((resolve, reject) => {
+    (async () => {
+      try {
+        const response = await api.put(`/book/${id}`, data);
+        resolve(response.data);
+      } catch (error) {
+        reject(error);
+      }
+    })();
+  });
+};
+
+export { allBooks, getOneBook, deleteBook, updateBook };
