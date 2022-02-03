@@ -48,7 +48,7 @@ const AddBook = function AddBook() {
                 <button
                   type="button"
                   className="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
-                  onClick={() => handleConfirmAdd()}
+                  onClick={handleConfirmAdd}
                 >
                   {' '}
                   No{' '}
