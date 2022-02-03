@@ -21,7 +21,7 @@ const OneBook = function OneBook() {
     <div>
       {book.map((b) => {
         return (
-          <div>
+          <div key={b.id}>
             <Title text={b.title} />
             <CardOneBook item={b} />
           </div>
