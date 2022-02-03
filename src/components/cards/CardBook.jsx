@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AllBooks } from '../../api/books';
+import { allBooks, deleteBook } from '../../api/books';
 import { BlueButton } from '../buttons/index';
 
 const CardBook = function CardBook() {
   const navigate = useNavigate();
   const [popup, setPopup] = useState(false);
   const [data, setData] = useState([]);
+  const [book, setBook] = useState();
 
   /**
    * Fetch des données en BDD
    */
   useEffect(() => {
-    AllBooks()
+    allBooks()
       .then((result) => setData(result))
       .catch((err) => console.error(err));
   }, []);
@@ -27,19 +28,25 @@ const CardBook = function CardBook() {
   /**
    * Fonction pour afficher la popup de confirmation
    */
-  const handleDelete = () => {
+  const handleConfirmDelete = (id) => {
+    setBook(id);
     setPopup(!popup);
   };
+
+  const handleDeleteBook = () => {
+    deleteBook(book).catch(() => true);
+    window.location.reload(false);
+  };
+
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-      {data.map((book) => {
-        console.log(book);
+      {data.map((b) => {
         return (
           <div
             className="max-w-sm rounded overflow-hidden shadow-lg"
-            key={book.bookid}
+            key={b.bookid}
           >
-            <img src={book.couverture} alt="book" />
+            <img src={b.couverture} alt="book" />
             <div className="float-right">
               <svg
                 cursor="pointer"
@@ -47,7 +54,7 @@ const CardBook = function CardBook() {
                 className=" text-red-400 w-7 h-7"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                onClick={handleDelete}
+                onClick={() => handleConfirmDelete(b.bookid)}
               >
                 <path
                   fillRule="evenodd"
@@ -57,20 +64,20 @@ const CardBook = function CardBook() {
               </svg>
             </div>
             <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">{book.title}</div>
+              <div className="font-bold text-xl mb-2">{b.title}</div>
             </div>
             <div className="px-6 pt-4 pb-2">
               <span className="inline-block bg-gray-100 rounded-lg px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                Author : {book.author}
+                Author : {b.author}
               </span>
               <br />
               <span className="inline-block bg-gray-100 rounded-lg px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                Category : {book.category}
+                Category : {b.category}
               </span>
             </div>
             <BlueButton
               text="View more"
-              onClick={() => handleViewMore(book.bookid)}
+              onClick={() => handleViewMore(b.bookid)}
             />
           </div>
         );
@@ -86,6 +93,7 @@ const CardBook = function CardBook() {
                 <button
                   type="button"
                   className="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg focus:shadow-outline hover:bg-green-800"
+                  onClick={handleDeleteBook}
                 >
                   {' '}
                   Yes
@@ -93,7 +101,7 @@ const CardBook = function CardBook() {
                 <button
                   type="button"
                   className="h-10 px-5 m-2 text-red-100 transition-colors duration-150 bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
-                  onClick={handleDelete}
+                  onClick={() => setPopup(!popup)}
                 >
                   {' '}
                   No{' '}
