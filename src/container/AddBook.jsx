@@ -12,7 +12,7 @@ const AddBook = function AddBook() {
     "ex : Harry Potter and the Philosopher's Stone"
   );
   const [author, setAuthor] = useState('ex : J.K. Rowling');
-  const [publishdate, setPublishdate] = useState(parseInt('', 10));
+  const [publishdate, setPublishdate] = useState(parseInt('2000', 10));
   const [couverture, setCouverture] = useState('link http:// ');
   const [summary, setSummary] = useState('');
 

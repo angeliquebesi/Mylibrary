@@ -74,7 +74,9 @@ const CardOneBook = function CardOneBook({ item }) {
               >
                 <option value="all">All</option>
                 {value.map((data) => (
-                  <option value={data}>{data}</option>
+                  <option key={data} value={data}>
+                    {data}
+                  </option>
                 ))}
               </select>
               <div className="mt-5">

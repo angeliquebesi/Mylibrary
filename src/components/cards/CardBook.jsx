@@ -62,7 +62,11 @@ const CardBook = function CardBook() {
         onChange={() => setFilterStatut(!filterStatut)}
       >
         {statChoice.map((filt) => {
-          return <option value={filt}>{filt}</option>;
+          return (
+            <option key={filt} value={filt}>
+              {filt}
+            </option>
+          );
         })}
       </select>
 
