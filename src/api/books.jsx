@@ -1,6 +1,6 @@
 import api from './routing';
 
-const AllBooks = () => {
+const allBooks = () => {
   return new Promise((resolve, reject) => {
     (async () => {
       try {
@@ -13,12 +13,11 @@ const AllBooks = () => {
   });
 };
 
-const GetOneBook = (id) => {
+const getOneBook = (id) => {
   return new Promise((resolve, reject) => {
     (async () => {
       try {
         const response = await api.get(`/book/${id}`);
-        console.log(response.data[0]);
         resolve(response.data);
       } catch (err) {
         reject(err);
@@ -27,4 +26,18 @@ const GetOneBook = (id) => {
   });
 };
 
-export { AllBooks, GetOneBook };
+const deleteBook = (id) => {
+  return new Promise((resolve, reject) => {
+    (async () => {
+      try {
+        const response = await api.delete(`/book/${id}`);
+        console.log(response);
+        resolve(response);
+      } catch (err) {
+        reject(err);
+      }
+    })();
+  });
+};
+
+export { allBooks, getOneBook, deleteBook };
