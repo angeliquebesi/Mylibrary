@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AllBooks from '../../api/books';
+import { AllBooks } from '../../api/books';
 import { BlueButton } from '../buttons/index';
 
 const CardBook = function CardBook() {
@@ -37,7 +37,7 @@ const CardBook = function CardBook() {
         return (
           <div
             className="max-w-sm rounded overflow-hidden shadow-lg"
-            key={book.id}
+            key={book.bookid}
           >
             <img src={book.couverture} alt="book" />
             <div className="float-right">
@@ -70,7 +70,7 @@ const CardBook = function CardBook() {
             </div>
             <BlueButton
               text="View more"
-              onClick={() => handleViewMore(book.id)}
+              onClick={() => handleViewMore(book.bookid)}
             />
           </div>
         );

@@ -13,4 +13,18 @@ const AllBooks = () => {
   });
 };
 
-export default AllBooks;
+const GetOneBook = (id) => {
+  return new Promise((resolve, reject) => {
+    (async () => {
+      try {
+        const response = await api.get(`/book/${id}`);
+        console.log(response.data[0]);
+        resolve(response.data);
+      } catch (err) {
+        reject(err);
+      }
+    })();
+  });
+};
+
+export { AllBooks, GetOneBook };
