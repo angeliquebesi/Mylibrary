@@ -53,4 +53,17 @@ const updateBook = (data, id) => {
   });
 };
 
-export { allBooks, getOneBook, deleteBook, updateBook };
+const postBook = (data) => {
+  return new Promise((resolve, reject) => {
+    (async () => {
+      try {
+        const response = await api.post('/book/', data);
+        resolve(response.data);
+      } catch (error) {
+        reject(error);
+      }
+    })();
+  });
+};
+
+export { allBooks, getOneBook, deleteBook, updateBook, postBook };
