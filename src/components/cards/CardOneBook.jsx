@@ -25,25 +25,28 @@ const CardOneBook = function CardOneBook({ item }) {
     <div className=" w-full lg:max-w-full lg:flex">
       <div>
         <img className="mx-auto" src={item.couverture} alt="couverture" />{' '}
-        <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" />
+        <div className="h-12 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" />
         <div className="lg:bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="mb-8">
             <p className="text-gray-700 text-base">{item.summary}</p>
           </div>
-          <div className="flex place-content-around ">
+          <div className="flex flex-col text-center md:flex-row md:place-content-around">
             <div className="text-lg">
-              <p className="text-gray-900 leading-none">
+              <p className="text-gray-700 p-3 leading-none">
                 Author : {item.author}{' '}
               </p>
-              <p className="text-gray-900 leading-none">
+              <p className="text-gray-700 p-3 leading-none">
                 Category : {item.category}
               </p>
-              <p className="text-gray-900 leading-none">
+              <p className="text-gray-700 p-3 leading-none">
                 Year : {item.publishdate}{' '}
               </p>
             </div>
             <div className="text-lg">
-              <p className="text-gray-900 leading-none"> Status :{reading}</p>
+              <p className="text-gray-700 p-3 leading-none">
+                {' '}
+                Status : <span className="font-medium">{reading}</span>
+              </p>
               <div className="my-5">
                 <GrayButton
                   text="Change Status"
