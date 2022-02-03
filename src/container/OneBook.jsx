@@ -9,8 +9,8 @@ const OneBook = function OneBook() {
   const [book, setBook] = useState([]);
 
   const numberId = parseInt(id, 10);
-  useEffect(() => {
-    getOneBook(numberId)
+  useEffect(async () => {
+    await getOneBook(numberId)
       .then((res) => {
         setBook(res);
       })

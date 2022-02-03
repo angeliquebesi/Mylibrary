@@ -12,8 +12,8 @@ const CardBook = function CardBook() {
   /**
    * Fetch des données en BDD
    */
-  useEffect(() => {
-    allBooks()
+  useEffect(async () => {
+    await allBooks()
       .then((result) => setData(result))
       .catch((err) => console.error(err));
   }, []);
@@ -24,17 +24,19 @@ const CardBook = function CardBook() {
   const handleViewMore = (id) => {
     navigate(`/allbooks/${id}`);
   };
-
   /**
    * Fonction pour afficher la popup de confirmation
+   * @param {number} id
    */
   const handleConfirmDelete = (id) => {
     setBook(id);
     setPopup(!popup);
   };
-
-  const handleDeleteBook = () => {
-    deleteBook(book).catch(() => true);
+  /**
+   * Fonction pour supprimer le livre de la BDD
+   */
+  const handleDeleteBook = async () => {
+    await deleteBook(book).catch(() => true);
     window.location.reload(false);
   };
 
