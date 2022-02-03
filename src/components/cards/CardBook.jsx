@@ -42,6 +42,17 @@ const CardBook = function CardBook() {
     window.location.reload(false);
   };
 
+  /**
+   * Fonction pour filtrer les livres en fonction du statut
+   * @param {objet} stat
+   * @param {number} index
+   * @param {string} self
+   * @returns
+   */
+  function unRead(stat, index, self) {
+    return filterStatut || self[index].statut === 'Unread';
+  }
+
   return (
     <div>
       <select
@@ -57,7 +68,8 @@ const CardBook = function CardBook() {
 
       <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {data
-          .filter(() => filterStatut)
+          .filter(unRead)
+
           .map((b) => {
             return (
               <div
