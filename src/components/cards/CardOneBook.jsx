@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
+import { updateBook } from '../../api/books';
 import { GrayButton } from '../buttons/index';
 
 const CardOneBook = function CardOneBook({ item }) {
   const [updateStatus, setUpdateStatus] = useState(false);
+  const [selectStatut, setSelectStatut] = useState({});
+  const [reading, setReading] = useState(item.statut);
+
   const value = ['Unread', 'Reading', 'Finished'];
 
   /**
    * Fonction pour valider le changement de statut et faire disparaitre la popup
    */
   const handleChangeStatus = () => {
+    updateBook({ selectStatut }, item.bookid)
+      .then((result) => setReading(result.statut))
+      .catch((err) => {
+        console.error(err);
+      });
+
     setUpdateStatus(false);
   };
-
   return (
     <div className=" w-full lg:max-w-full lg:flex">
       <div>
@@ -34,10 +43,7 @@ const CardOneBook = function CardOneBook({ item }) {
               </p>
             </div>
             <div className="text-lg">
-              <p className="text-gray-900 leading-none">
-                {' '}
-                Status :{item.statut}
-              </p>
+              <p className="text-gray-900 leading-none"> Status :{reading}</p>
               <div className="my-5">
                 <GrayButton
                   text="Change Status"
@@ -57,13 +63,13 @@ const CardOneBook = function CardOneBook({ item }) {
           <div className="py-8 px-14 bg-white border-gray-200 rounded-lg z-50  border-2 shadow-md text-center">
             <div className="mb-6 w-52">
               <p className="mb-4 text-sm text-gray-500">Status</p>
-              {/** Ajouter le onchange */}
               <select
                 className="w-full border border-gray-300 rounded-md"
                 name="filter"
                 id="filter"
+                onChange={(e) => setSelectStatut(e.target.value)}
               >
-                <option value="all">Tous</option>
+                <option value="all">All</option>
                 {value.map((data) => (
                   <option value={data}>{data}</option>
                 ))}
