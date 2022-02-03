@@ -119,7 +119,9 @@ const CardBook = function CardBook() {
             <div className="bg-gray-700 opacity-20 absolute inset-0 z-40" />
             <div className="py-8 px-14 bg-white border-gray-200 rounded-lg z-50  border-2 shadow-md text-center">
               <div className="mb-6 w-52">
-                <p className="mb-4 text-sm text-gray-500">Are you sure ?</p>
+                <p className="mb-4 text-sm text-gray-500">
+                  Delete this book, are you sure ?
+                </p>
                 <div className="mt-5">
                   <button
                     type="button"
